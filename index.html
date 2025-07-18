@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LambdaTest Image Upload</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .btnUploadDiv { margin-top: 20px; }
+    .btn { padding: 10px 15px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+    .btn:disabled { background-color: #aaa; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+
+  <h2>Upload Image</h2>
+
+  <div class="col-md-12 btnUploadDiv">
+    <p>
+      Select Image:
+      <input aria-label="Select Image" type="file" id="images" accept="image/*" name="orig_file_field">
+    </p>
+    <p>
+      <button id="upload_photo" class="btn" disabled>Save</button>
+    </p>
+    <p id="status"></p>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById("images");
+    const uploadBtn = document.getElementById("upload_photo");
+    const status = document.getElementById("status");
+
+    fileInput.addEventListener("change", () => {
+      if (fileInput.files.length > 0) {
+        uploadBtn.disabled = false;
+        status.textContent = "Ready to upload: " + fileInput.files[0].name;
+      }
+    });
+
+    uploadBtn.addEventListener("click", () => {
+      status.textContent = "Simulating upload...";
+      setTimeout(() => {
+        status.textContent = "Upload successful!";
+      }, 2000);
+    });
+  </script>
+
+</body>
+</html>
