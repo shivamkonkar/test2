@@ -22,13 +22,19 @@
     <p>
       <button id="upload_photo" class="btn" disabled>Save</button>
     </p>
+    <p>
+      <button id="click_me_btn" class="btn">Click Me</button>
+    </p>
     <p id="status"></p>
+    <p id="message"></p>
   </div>
 
   <script>
     const fileInput = document.getElementById("images");
     const uploadBtn = document.getElementById("upload_photo");
+    const clickBtn = document.getElementById("click_me_btn");
     const status = document.getElementById("status");
+    const message = document.getElementById("message");
 
     fileInput.addEventListener("change", () => {
       if (fileInput.files.length > 0) {
@@ -42,6 +48,10 @@
       setTimeout(() => {
         status.textContent = "Upload successful!";
       }, 2000);
+    });
+
+    clickBtn.addEventListener("click", () => {
+      message.textContent = "Button clicked!";
     });
   </script>
 
